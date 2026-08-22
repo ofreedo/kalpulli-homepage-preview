@@ -240,9 +240,14 @@
   .highlights-playpause{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:none;background:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease, transform .2s ease;}
   .highlights-playpause:hover{background:var(--red-dark);transform:scale(1.06);}
   .highlights-playpause svg{width:13px;height:13px;fill:#fff;}
-  .highlights-playpause .icon-pause{display:none;}
-  .highlights-playpause.is-playing .icon-play{display:none;}
+  /* Three mutually exclusive icon states: play (paused, not ended), pause (playing), replay (ended) */
+  .highlights-playpause .icon-play,
+  .highlights-playpause .icon-pause,
+  .highlights-playpause .icon-replay{display:none;}
   .highlights-playpause.is-playing .icon-pause{display:block;}
+  .highlights-playpause:not(.is-playing):not(.is-ended) .icon-play{display:block;}
+  .highlights-playpause.is-ended .icon-replay{display:block;}
+  .highlights-playpause.is-ended svg{width:14px;height:14px;}
 
   @media (max-width: 900px){
     .highlights-stage{aspect-ratio:4/5;}
@@ -560,6 +565,7 @@
       <button class="highlights-playpause is-playing" data-highlights-playpause aria-label="Pause highlights">
         <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        <svg class="icon-replay" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
       </button>
     </div>
   </div>
@@ -768,6 +774,7 @@
 
     function updatePlayPauseUI(){
       playPauseBtn.classList.toggle('is-playing', isPlaying);
+      playPauseBtn.classList.toggle('is-ended', isEnded);
       playPauseBtn.setAttribute('aria-label', isPlaying ? 'Pause highlights' : (isEnded ? 'Replay highlights' : 'Play highlights'));
     }
 
