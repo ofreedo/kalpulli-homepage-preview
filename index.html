@@ -208,6 +208,48 @@
   .banner .btn{padding:11px 26px;font-size:.82rem;transition:background .2s ease, color .2s ease, transform .2s ease;}
   .banner:hover .btn{transform:scale(1.05);}
 
+  /* ===== HIGHLIGHTS GALLERY — "Where You've Seen Us" ===== */
+  .highlights{position:relative;}
+  .highlights-stage{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/8;isolation:isolate;background:var(--ink);}
+  .highlights-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease;}
+  .highlights-slide.is-active{opacity:1;z-index:1;}
+  .highlights-slide::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.78) 100%);}
+  .highlights-caption{position:absolute;left:0;right:0;bottom:0;padding:44px 48px;color:#fff;z-index:2;}
+  .highlights-caption .kicker{color:#e8a89a;text-align:left;margin-bottom:8px;}
+  .highlights-caption h3{font-family:var(--serif);font-weight:800;font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.1;letter-spacing:-.01em;max-width:640px;}
+  .highlights-caption p{font-size:1rem;color:rgba(255,255,255,0.85);margin-top:12px;max-width:520px;}
+
+  /* Seal watermark inside the stage, echoing the site's recurring brand mark */
+  .highlights-stage .seal-spin{width:420px;opacity:.05;}
+
+  /* Controls: one pill-shaped dark bar centered below the stage — Apple's
+     "Get the highlights" pattern. Inactive items are plain small dots; only
+     the active item expands into a progress-bar pill. Play/pause sits at the
+     end of the same bar as its own separate pill. */
+  .highlights-controls{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:28px;}
+
+  .highlights-dotnav{display:flex;align-items:center;gap:8px;list-style:none;background:var(--ink);border-radius:999px;padding:8px;}
+  .highlights-dotnav li{display:flex;}
+  .highlights-dotnav button{position:relative;display:block;width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.35);border:none;cursor:pointer;padding:0;transition:width .35s cubic-bezier(.16,.8,.3,1), background .2s ease;}
+  .highlights-dotnav li.is-done button{background:rgba(255,255,255,0.7);}
+  .highlights-dotnav li.is-active button{width:56px;background:rgba(255,255,255,0.28);overflow:hidden;}
+  .highlights-dotnav li.is-active .fill{display:block;position:absolute;top:0;left:0;height:100%;width:0%;background:#fff;border-radius:999px;}
+  .highlights-dotnav li.is-active.is-done .fill{width:100%;transition:none;}
+  .highlights-dotnav .label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+  .highlights-playpause{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:none;background:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease, transform .2s ease;}
+  .highlights-playpause:hover{background:var(--red-dark);transform:scale(1.06);}
+  .highlights-playpause svg{width:13px;height:13px;fill:#fff;}
+  .highlights-playpause .icon-pause{display:none;}
+  .highlights-playpause.is-playing .icon-play{display:none;}
+  .highlights-playpause.is-playing .icon-pause{display:block;}
+
+  @media (max-width: 900px){
+    .highlights-stage{aspect-ratio:4/5;}
+    .highlights-caption{padding:28px 24px;}
+    .highlights-dotnav li.is-active button{width:40px;}
+  }
+
   /* Quote */
   .quote-section{background:var(--red);color:#fff;padding:100px 0;text-align:center;}
   /* No italic Migra file available — oblique is browser-synthesized, acceptable for this quiet, lighter-weight moment */
@@ -453,31 +495,72 @@
   </div>
 </section>
 
-<!-- FEATURED PERFORMANCES -->
-<section class="section-tight" style="overflow:hidden;padding-bottom:140px;">
-  <img class="seal-spin" src="assets/logo_.webp" alt="">
+<!-- FEATURED PERFORMANCES / HIGHLIGHTS GALLERY -->
+<section class="section-tight highlights" style="overflow:hidden;padding-bottom:140px;">
   <div class="wrap" style="position:relative;z-index:1;">
     <div class="kicker reveal reveal-up">Where You've Seen Us</div>
-    <h2 class="section-title reveal reveal-up" style="margin-bottom:56px;">Featured Performances</h2>
-    <div class="banners reveal-stagger">
-      <a class="banner" href="#" style="background-image:url('assets/tedx-stage.jpg');">
-        <div class="banner-inner">
-          <h3>TEDx Mission College</h3>
-          <span class="btn btn-outline">Learn More</span>
+    <h2 class="section-title reveal reveal-up" style="margin-bottom:56px;">Get the Highlights</h2>
+
+    <div class="highlights-stage reveal reveal-up" data-highlights-stage>
+      <img class="seal-spin" src="assets/logo_.webp" alt="">
+
+      <div class="highlights-slide is-active" style="background-image:url('assets/tedx-stage.jpg');">
+        <div class="highlights-caption">
+          <div class="kicker">TEDx Mission College</div>
+          <h3>On stage at TEDx</h3>
+          <p>Sharing the story of Kalpulli Ehecacoatl with a stage built for big ideas.</p>
         </div>
-      </a>
-      <a class="banner" href="#" style="background-image:url('assets/tandy-beal-stage.png');">
-        <div class="banner-inner">
-          <h3>Santa Cruz Dance Week</h3>
-          <span class="btn btn-outline">Learn More</span>
+      </div>
+      <div class="highlights-slide" style="background-image:url('assets/Santa-Cruz-Dance-Week2026.png');">
+        <div class="highlights-caption">
+          <div class="kicker">Santa Cruz Dance Week</div>
+          <h3>An offering in the street</h3>
+          <p>Incense rises as a dancer honors the four directions before the crowd.</p>
         </div>
-      </a>
-      <a class="banner" href="#" style="background-image:url('assets/dia-de-muertos-1.png');">
-        <div class="banner-inner">
-          <h3>Día de Muertos</h3>
-          <span class="btn btn-outline">Learn More</span>
+      </div>
+      <div class="highlights-slide" style="background-image:url('assets/dia-de-muertos-1.png');">
+        <div class="highlights-caption">
+          <div class="kicker">Día de Muertos Ceremony</div>
+          <h3>Remembrance in regalia</h3>
+          <p>Honoring our ancestors through dance, song, and sacred ritual.</p>
         </div>
-      </a>
+      </div>
+      <div class="highlights-slide" style="background-image:url('assets/drum-circle.jpg');">
+        <div class="highlights-caption">
+          <div class="kicker">Free Danza Practices</div>
+          <h3>Where the drum teaches</h3>
+          <p>Every Monday &amp; Thursday, our community gathers to learn and grow together.</p>
+        </div>
+      </div>
+      <div class="highlights-slide" style="background-image:url('assets/marigold-arch.jpg');">
+        <div class="highlights-caption">
+          <div class="kicker">Día de Muertos, Watsonville</div>
+          <h3>Beneath the marigold arch</h3>
+          <p>The community gathers at Romo Park to celebrate life and memory together.</p>
+        </div>
+      </div>
+      <div class="highlights-slide" style="background-image:url('assets/tandy-beal-stage.png');">
+        <div class="highlights-caption">
+          <div class="kicker">Community Performance</div>
+          <h3>Moving as one</h3>
+          <p>Preserving tradition, celebrating movement — together, in community.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlights-controls">
+      <ul class="highlights-dotnav" role="tablist" data-highlights-dotnav>
+        <li class="is-active" role="presentation"><button role="tab" aria-selected="true" data-index="0"><span class="fill"></span><span class="label">TEDx Mission College</span></button></li>
+        <li role="presentation"><button role="tab" aria-selected="false" data-index="1"><span class="fill"></span><span class="label">Santa Cruz Dance Week</span></button></li>
+        <li role="presentation"><button role="tab" aria-selected="false" data-index="2"><span class="fill"></span><span class="label">Día de Muertos Ceremony</span></button></li>
+        <li role="presentation"><button role="tab" aria-selected="false" data-index="3"><span class="fill"></span><span class="label">Free Danza Practices</span></button></li>
+        <li role="presentation"><button role="tab" aria-selected="false" data-index="4"><span class="fill"></span><span class="label">Marigold Arch</span></button></li>
+        <li role="presentation"><button role="tab" aria-selected="false" data-index="5"><span class="fill"></span><span class="label">Community Performance</span></button></li>
+      </ul>
+      <button class="highlights-playpause is-playing" data-highlights-playpause aria-label="Pause highlights">
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -584,6 +667,146 @@
       a.addEventListener('click', closeMobileNav);
     });
   }
+
+  // "Get the Highlights" gallery — timed dotnav, play/pause, replay on end
+  (function(){
+    var stage = document.querySelector('[data-highlights-stage]');
+    if (!stage) return;
+
+    var SLIDE_DURATION = 5000; // ms per slide
+    var slides = stage.querySelectorAll('.highlights-slide');
+    var dotnavItems = document.querySelectorAll('[data-highlights-dotnav] > li');
+    var dotnavButtons = document.querySelectorAll('[data-highlights-dotnav] button');
+    var playPauseBtn = document.querySelector('[data-highlights-playpause]');
+    var total = slides.length;
+    var current = 0;
+    var isPlaying = true;
+    var isEnded = false;
+    var timerStart = null;
+    var rafId = null;
+
+    function goTo(index, opts){
+      opts = opts || {};
+      var prevIndex = current;
+      current = ((index % total) + total) % total;
+      isEnded = false;
+
+      slides[prevIndex].classList.remove('is-active');
+      slides[current].classList.add('is-active');
+
+      dotnavItems.forEach(function(li, i){
+        li.classList.toggle('is-active', i === current);
+        li.classList.toggle('is-done', !opts.userInitiated && i < current);
+        if (opts.userInitiated) li.classList.remove('is-done');
+        var fill = li.querySelector('.fill');
+        if (i === current) {
+          fill.style.transition = 'none';
+          fill.style.width = '0%';
+        } else if (i < current && !opts.userInitiated) {
+          fill.style.width = '100%';
+        } else if (opts.userInitiated) {
+          fill.style.transition = 'none';
+          fill.style.width = i < current ? '100%' : '0%';
+        }
+        dotnavButtons[i].setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+
+      timerStart = performance.now();
+    }
+
+    function startFill(){
+      var fill = dotnavItems[current].querySelector('.fill');
+      requestAnimationFrame(function(){
+        fill.style.transition = 'width ' + SLIDE_DURATION + 'ms linear';
+        fill.style.width = '100%';
+      });
+    }
+
+    function tick(now){
+      if (!isPlaying || reduceMotion) return;
+      var elapsed = now - timerStart;
+      if (elapsed >= SLIDE_DURATION) {
+        if (current === total - 1) {
+          // Reached the end: stop and show a replay affordance
+          isEnded = true;
+          isPlaying = false;
+          updatePlayPauseUI();
+          dotnavItems[current].querySelector('.fill').style.width = '100%';
+          return;
+        }
+        goTo(current + 1);
+        startFill();
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function play(){
+      if (isEnded) {
+        goTo(0);
+      }
+      isPlaying = true;
+      isEnded = false;
+      updatePlayPauseUI();
+      startFill();
+      timerStart = performance.now();
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function pause(){
+      isPlaying = false;
+      updatePlayPauseUI();
+      cancelAnimationFrame(rafId);
+      // Freeze the fill exactly where it is rather than jumping
+      var fill = dotnavItems[current].querySelector('.fill');
+      var computedWidth = getComputedStyle(fill).width;
+      var trackWidth = fill.parentElement.getBoundingClientRect().width;
+      var pct = trackWidth ? (parseFloat(computedWidth) / trackWidth) * 100 : 0;
+      fill.style.transition = 'none';
+      fill.style.width = pct + '%';
+    }
+
+    function updatePlayPauseUI(){
+      playPauseBtn.classList.toggle('is-playing', isPlaying);
+      playPauseBtn.setAttribute('aria-label', isPlaying ? 'Pause highlights' : (isEnded ? 'Replay highlights' : 'Play highlights'));
+    }
+
+    playPauseBtn.addEventListener('click', function(){
+      if (isPlaying) { pause(); } else { play(); }
+    });
+
+    dotnavButtons.forEach(function(btn, i){
+      btn.addEventListener('click', function(){
+        goTo(i, {userInitiated: true});
+        if (isPlaying || isEnded) { play(); }
+      });
+    });
+
+    // Pause when the gallery scrolls out of view; resume when it returns (if it was playing)
+    var wasPlayingBeforeHidden = true;
+    if ('IntersectionObserver' in window) {
+      var visIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (!entry.isIntersecting && isPlaying) {
+            wasPlayingBeforeHidden = true;
+            pause();
+          } else if (entry.isIntersecting && wasPlayingBeforeHidden && !isEnded) {
+            play();
+          }
+        });
+      }, {threshold: 0.3});
+      visIo.observe(stage);
+    }
+
+    if (reduceMotion) {
+      // Respect reduced motion: no autoplay, static first slide, manual nav only
+      isPlaying = false;
+      updatePlayPauseUI();
+      dotnavItems.forEach(function(li, i){ li.querySelector('.fill').style.width = i === 0 ? '0%' : '0%'; });
+    } else {
+      play();
+    }
+  })();
 
   // Kalpulli (gathering): reveal elements as they scroll into view
   var revealTargets = document.querySelectorAll('.reveal, .reveal-stagger, .torn-edge, .quote-section');
