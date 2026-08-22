@@ -62,26 +62,46 @@
 
   /* Header */
   header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(247,244,239,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
-  header .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:1200px;margin:0 auto;}
+  header .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 40px;max-width:1200px;margin:0 auto;min-height:87px;box-sizing:border-box;}
   .hero{margin-top:87px;}
-  .logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:800;font-size:1.05rem;letter-spacing:.2px;}
+  .logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:800;font-size:1.05rem;letter-spacing:.2px;white-space:nowrap;}
   .logo .mark{width:44px;height:44px;border-radius:50%;display:block;overflow:hidden;flex-shrink:0;}
   .logo .mark img{width:100%;height:100%;object-fit:cover;}
   nav ul{display:flex;gap:24px;list-style:none;font-size:.9rem;font-weight:700;white-space:nowrap;}
   nav a{opacity:.85;transition:opacity .2s;}
   nav a:hover{opacity:1;color:var(--red);}
-  .header-right{display:flex;align-items:center;gap:20px;}
+  .header-right{display:flex;align-items:center;gap:20px;flex-shrink:0;}
   .social{display:flex;gap:14px;}
   .social a{width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--red);}
-  .lang-btn{font-size:.78rem;border:1px solid var(--line);border-radius:20px;padding:6px 14px;}
-  .donate-btn{background:var(--red);color:#fff;padding:9px 20px;border-radius:24px;font-size:.85rem;font-weight:700;}
+  .lang-btn{font-size:.78rem;border:1px solid var(--line);border-radius:20px;padding:6px 14px;white-space:nowrap;}
+  .donate-btn{background:var(--red);color:#fff;padding:9px 20px;border-radius:24px;font-size:.85rem;font-weight:700;white-space:nowrap;}
   .donate-btn:hover{background:var(--red-dark);}
+
+  /* Hamburger toggle — hidden on desktop, shown on mobile */
+  .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;flex-shrink:0;background:none;border:none;cursor:pointer;padding:0;}
+  .hamburger span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s ease, opacity .25s ease;}
+  .hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.is-open span:nth-child(2){opacity:0;}
+  .hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* Mobile nav overlay panel */
+  .mobile-nav{position:fixed;top:0;right:0;bottom:0;width:min(320px,85vw);background:var(--cream);z-index:60;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,.8,.3,1);box-shadow:-8px 0 30px rgba(0,0,0,0.15);overflow-y:auto;}
+  .mobile-nav.is-open{transform:translateX(0);}
+  .mobile-nav-header{display:flex;justify-content:flex-end;padding:16px 20px;}
+  .mobile-nav-close{width:36px;height:36px;border:none;background:none;cursor:pointer;font-size:1.5rem;color:var(--ink);}
+  .mobile-nav ul{list-style:none;display:flex;flex-direction:column;padding:0 32px 32px;}
+  .mobile-nav a{display:block;padding:16px 0;font-family:var(--serif);font-weight:800;font-size:1.4rem;color:var(--ink);border-bottom:1px solid var(--line);}
+  .mobile-nav-social{display:flex;gap:14px;padding:8px 32px 32px;}
+  .mobile-nav-social .social-link{font-size:.85rem;font-weight:700;color:var(--red);border:1px solid var(--line);border-radius:20px;padding:8px 16px;}
+  .nav-scrim{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:55;opacity:0;pointer-events:none;transition:opacity .35s ease;}
+  .nav-scrim.is-open{opacity:1;pointer-events:auto;}
 
   /* Hero */
   .hero{position:relative;height:92vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;background-size:cover;background-position:center;}
   .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.55) 100%);z-index:1;}
   .hero-video{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100%;min-width:177.78vh;transform:translate(-50%,-50%);z-index:0;pointer-events:none;will-change:transform;}
-  .hero-video iframe{width:100%;height:100%;}
+  .hero-video iframe{width:100%;height:100%;opacity:0;transition:opacity .6s ease;}
+  .hero-video iframe.is-playing{opacity:1;}
   .hero-content{position:relative;z-index:2;color:#fff;padding:0 40px 64px;max-width:1200px;margin:0 auto;width:100%;}
   .eyebrow{font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.9;margin-bottom:18px;}
   .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.8rem, 7vw, 5.4rem);line-height:1.0;letter-spacing:-.01em;max-width:900px;}
@@ -201,13 +221,25 @@
   .footer-bottom a{color:rgba(242,237,230,0.55);margin-left:18px;}
 
   @media (max-width: 900px){
-    nav{display:none;}
+    header .bar > nav{display:none;}
+    .hamburger{display:flex;}
+    header .bar{padding:14px 20px;}
+    .logo{font-size:.92rem;}
+    .logo .mark{width:38px;height:38px;}
+    .header-right .social,.header-right .lang-btn{display:none;}
+    .header-right{gap:12px;}
+    .donate-btn{padding:8px 16px;font-size:.8rem;}
     .cards{grid-template-columns:1fr;grid-template-rows:none;height:auto;}
     .card{aspect-ratio:3/4;}
     .card-feature{grid-row:auto;}
     .banners{grid-template-columns:1fr;}
     .meaning .wrap{grid-template-columns:1fr;gap:36px;}
     .footer-top{grid-template-columns:1fr 1fr;}
+  }
+
+  @media (max-width: 480px){
+    .hero h1{font-size:clamp(2.2rem,10vw,2.8rem);}
+    .footer-top{grid-template-columns:1fr;}
   }
 
   /* ===== MOTION SYSTEM ===== */
@@ -282,12 +314,34 @@
       <div class="social"><a href="#">f</a><a href="#">ig</a></div>
       <span class="lang-btn">EN / ES</span>
       <a class="donate-btn" href="#">Donate</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
 
+<div class="nav-scrim" id="navScrim"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+  </div>
+  <ul>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Join Us</a></li>
+    <li><a href="#">Book Us</a></li>
+    <li><a href="#">Ceremony</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-social">
+    <a href="#" class="social-link">Facebook</a>
+    <a href="#" class="social-link">Instagram</a>
+  </div>
+</nav>
+
 <!-- HERO -->
-<section class="hero" style="padding:0;background-image:url('assets/marigold-arch.jpg');">
+<section class="hero" style="padding:0;background-image:url('assets/startframe.png');">
   <div class="hero-video">
     <iframe src="https://player.vimeo.com/video/1213705488?muted=1&autoplay=1&dnt=1&loop=1&background=1&app_id=122963"
       frameborder="0" allow="autoplay; fullscreen" title="Kalpulli Ehecacoatl hero video"></iframe>
@@ -463,9 +517,61 @@
   </div>
 </footer>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Keep the hero's top offset in sync with the header's real rendered height,
+  // so wrapping logo text or breakpoint changes never leave a gap or overlap.
+  var headerEl = document.querySelector('header');
+  var heroEl = document.querySelector('.hero');
+  function syncHeaderOffset(){
+    if (headerEl && heroEl) {
+      heroEl.style.marginTop = headerEl.getBoundingClientRect().height + 'px';
+    }
+  }
+  syncHeaderOffset();
+  window.addEventListener('resize', syncHeaderOffset);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncHeaderOffset);
+  }
+
+  // Mobile hamburger nav: open/close via button, scrim, close button, or Escape
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileNavClose = document.getElementById('mobileNavClose');
+  var navScrim = document.getElementById('navScrim');
+
+  function openMobileNav(){
+    mobileNav.classList.add('is-open');
+    navScrim.classList.add('is-open');
+    hamburgerBtn.classList.add('is-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileNav(){
+    mobileNav.classList.remove('is-open');
+    navScrim.classList.remove('is-open');
+    hamburgerBtn.classList.remove('is-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (hamburgerBtn && mobileNav) {
+    hamburgerBtn.addEventListener('click', function(){
+      mobileNav.classList.contains('is-open') ? closeMobileNav() : openMobileNav();
+    });
+    mobileNavClose.addEventListener('click', closeMobileNav);
+    navScrim.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closeMobileNav();
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeMobileNav);
+    });
+  }
 
   // Kalpulli (gathering): reveal elements as they scroll into view
   var revealTargets = document.querySelectorAll('.reveal, .reveal-stagger, .torn-edge, .quote-section');
@@ -558,6 +664,20 @@
   if (!reduceMotion) {
     window.addEventListener('scroll', onScroll, {passive: true});
     updateParallax();
+  }
+
+  // Hero video: keep the iframe transparent (poster frame shows through) until
+  // Vimeo confirms actual playback has started, so there's no flash of the
+  // iframe's own blank background loading in before the video paints.
+  var heroIframe = document.querySelector('.hero-video iframe');
+  if (heroIframe && window.Vimeo && window.Vimeo.Player) {
+    var vimeoPlayer = new Vimeo.Player(heroIframe);
+    vimeoPlayer.on('play', function(){
+      heroIframe.classList.add('is-playing');
+    });
+  } else if (heroIframe) {
+    // Fallback if the Player API script hasn't loaded: reveal after a short delay
+    setTimeout(function(){ heroIframe.classList.add('is-playing'); }, 800);
   }
 })();
 </script>
