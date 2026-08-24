@@ -148,10 +148,33 @@
   /* Watermark mark — single large centered spiral, blended into light sections the same way watermark-band blends into dark ones */
   .watermark-mark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:640px;width:auto;max-width:none;opacity:.05;pointer-events:none;z-index:0;}
 
-  /* Coatl (serpent/movement): the official seal, slowly turning like a stamp in motion */
-  @keyframes sealSpin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
-  .seal-spin{position:absolute;top:50%;left:50%;width:640px;max-width:none;opacity:.06;pointer-events:none;z-index:0;animation:sealSpin 90s linear infinite;}
-  @media (prefers-reduced-motion: reduce){ .seal-spin{animation:none;} }
+  /* Coatl (serpent/movement): the official seal, fixed to the viewport and slowly
+     turning like a stamp in motion. Sits beneath every section from "Meaning"
+     through the footer, fading in once scrolled past and fading out at the very
+     bottom of the page. z-index sits below section backgrounds but the sections
+     themselves are transparent-background where this should show through. */
+  /* Split into two elements: outer handles fixed position + opacity fade
+     (plain transition), inner handles the continuous rotation (CSS animation).
+     Combining an infinite animation and a separate opacity transition on the
+     SAME element caused the opacity change to be silently suppressed in testing —
+     splitting them avoids that engine quirk entirely. */
+  @keyframes sealSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .seal-watermark{position:fixed;top:50%;left:50%;width:640px;height:640px;max-width:none;transform:translate(-50%,-50%);opacity:0;pointer-events:none;z-index:0;transition:opacity 1s ease;}
+  .seal-watermark.is-visible{opacity:.5;}
+  .seal-watermark img{width:100%;height:100%;animation:sealSpin 90s linear infinite;}
+  @media (prefers-reduced-motion: reduce){ .seal-watermark img{animation:none;} }
+  @media (max-width: 900px){ .seal-watermark{width:400px;height:400px;} }
+
+  /* Sections keep a near-opaque (97%) background rather than fully solid, so the
+     fixed seal watermark reads as a continuous, subtle presence across the whole
+     page — not just in the narrow gaps between sections — while text, photos,
+     and cards (separate opaque elements layered on top) stay perfectly crisp. */
+  .meaning, .quote-section, .highlights, footer{position:relative;}
+
+  /* Small breathing-room strips between sections; fully transparent since the
+     sections themselves now let the seal show through everywhere. */
+  .section-gap{height:64px;background:transparent;position:relative;z-index:0;}
+  @media (max-width: 900px){ .section-gap{height:40px;} }
 
   /* Torn-edge section divider — jagged mask between color blocks.
      The container background must match the section ABOVE (being exited) so it
@@ -266,7 +289,7 @@
   .footer-banner::before{content:'';position:absolute;inset:0;background:rgba(15,10,8,0.5);z-index:-1;}
   .footer-banner h2{font-family:var(--serif);color:#fff;font-size:clamp(1.8rem,4.2vw,3.1rem);font-weight:800;letter-spacing:.02em;text-transform:uppercase;padding:0 20px;line-height:1.15;}
   footer{background:var(--ink);color:rgba(242,237,230,0.85);}
-  .footer-top{padding:60px 0 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .footer-top{padding-top:60px;padding-bottom:40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;border-bottom:1px solid rgba(255,255,255,0.1);}
   .footer-brand .logo-f{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
   .footer-brand .mark{width:46px;height:46px;border-radius:50%;display:block;overflow:hidden;flex-shrink:0;}
   .footer-brand .mark img{width:100%;height:100%;object-fit:cover;}
@@ -276,7 +299,7 @@
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.9rem;}
   .footer-col a{color:rgba(242,237,230,0.75);}
   .footer-col a:hover{color:#e8a89a;}
-  .footer-bottom{padding:22px 0;display:flex;justify-content:space-between;font-size:.8rem;color:rgba(242,237,230,0.55);flex-wrap:wrap;gap:10px;}
+  .footer-bottom{padding-top:22px;padding-bottom:22px;display:flex;justify-content:space-between;font-size:.8rem;color:rgba(242,237,230,0.55);flex-wrap:wrap;gap:10px;}
   .footer-bottom a{color:rgba(242,237,230,0.55);margin-left:18px;}
 
   @media (max-width: 900px){
@@ -353,6 +376,8 @@
 </head>
 <body>
 
+<div class="seal-watermark" id="sealWatermark"><img src="assets/logo_.webp" alt=""></div>
+
 <header>
   <div class="bar">
     <div class="logo">
@@ -417,7 +442,7 @@
 </section>
 
 <!-- MISSION & VISION -->
-<section style="overflow:hidden;">
+<section style="overflow:hidden;" data-seal-cream>
   <div class="watermark"></div>
   <div class="wrap mission-wrap reveal reveal-up">
     <div class="kicker">Our Mission &amp; Vision</div>
@@ -462,8 +487,10 @@
   </svg>
 </div>
 
+<div class="section-gap"></div>
+
 <!-- HEALTHY CHANGE IN THE COMMUNITY -->
-<section>
+<section data-seal-cream>
   <div class="wrap">
     <div class="kicker reveal reveal-up">Get Involved</div>
     <h2 class="section-title reveal reveal-up">Healthy change in the community</h2>
@@ -491,6 +518,8 @@
   </div>
 </section>
 
+<div class="section-gap"></div>
+
 <!-- QUOTE -->
 <section class="quote-section" style="overflow:hidden;">
   <div class="watermark light"></div>
@@ -500,9 +529,10 @@
   </div>
 </section>
 
+<div class="section-gap"></div>
+
 <!-- FEATURED PERFORMANCES / HIGHLIGHTS GALLERY -->
-<section class="section-tight highlights" style="overflow:hidden;padding-bottom:140px;">
-  <img class="seal-spin" src="assets/logo_.webp" alt="">
+<section class="section-tight highlights" style="overflow:hidden;padding-bottom:140px;" data-seal-cream>
   <div class="wrap" style="position:relative;z-index:1;">
     <div class="kicker reveal reveal-up">Where You've Seen Us</div>
     <h2 class="section-title reveal reveal-up" style="margin-bottom:56px;">Get the Highlights</h2>
@@ -571,10 +601,14 @@
   </div>
 </section>
 
+<div class="section-gap"></div>
+
 <!-- FOOTER BANNER -->
 <div class="footer-banner" style="background-image:url('assets/tandy-beal-stage.png');">
   <h2>Preserving Tradition, Celebrating Movement</h2>
 </div>
+
+<div class="section-gap"></div>
 
 <footer>
   <div class="wrap footer-top">
@@ -622,6 +656,47 @@
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Coatl (serpent/movement): fixed seal watermark should only read as visible
+  // when a plain-cream section is actually sitting behind its fixed on-screen
+  // position — showing it any time the user has merely scrolled past a single
+  // marker caused it to "turn on" while a dark/red opaque section (or the hero)
+  // was still occupying that spot, since the seal's screen position never
+  // moves but the page content sliding underneath it does. Instead, on every
+  // scroll tick we ask the DOM what's actually rendered at the seal's fixed
+  // center point (elementFromPoint sees straight through the seal itself,
+  // since it has pointer-events:none) and only show the seal when that lands
+  // inside a section explicitly marked [data-seal-cream] — an allowlist
+  // rather than excluding known-opaque sections, so any new section added
+  // later defaults to hidden instead of silently leaking the seal.
+  //
+  // Also gated on having fully scrolled past the "Meaning of the Name"
+  // section: the seal is the same serpent glyph explained there, so
+  // revealing it before that section (e.g. behind the Mission heading) reads
+  // as visual noise rather than a payoff. It stays gated even on the way back
+  // up — only counts as "past" once .meaning has fully scrolled off the top.
+  var sealWatermark = document.getElementById('sealWatermark');
+  var sealMeaningSection = document.querySelector('.meaning');
+  if (sealWatermark) {
+    var sealTicking = false;
+    function updateSealVisibility(){
+      var pastMeaning = !sealMeaningSection || sealMeaningSection.getBoundingClientRect().bottom <= 0;
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      var behind = document.elementFromPoint(cx, cy);
+      var isVisible = pastMeaning && !!behind && !!behind.closest('[data-seal-cream]');
+      sealWatermark.classList.toggle('is-visible', isVisible);
+      sealTicking = false;
+    }
+    updateSealVisibility();
+    window.addEventListener('scroll', function(){
+      if (!sealTicking) {
+        requestAnimationFrame(updateSealVisibility);
+        sealTicking = true;
+      }
+    }, {passive: true});
+    window.addEventListener('resize', updateSealVisibility);
+  }
 
   // Keep the hero's top offset in sync with the header's real rendered height,
   // so wrapping logo text or breakpoint changes never leave a gap or overlap.
