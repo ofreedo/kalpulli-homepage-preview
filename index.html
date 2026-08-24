@@ -161,7 +161,8 @@
   @keyframes sealSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
   .seal-watermark{position:fixed;top:50%;left:50%;width:640px;height:640px;max-width:none;transform:translate(-50%,-50%);opacity:0;pointer-events:none;z-index:0;transition:opacity 1s ease;}
   .seal-watermark.is-visible{opacity:.5;}
-  .seal-watermark img{width:100%;height:100%;animation:sealSpin 90s linear infinite;}
+  .seal-watermark img{width:100%;height:100%;animation:sealSpin 90s linear infinite;animation-play-state:paused;}
+  .seal-watermark.is-visible img{animation-play-state:running;}
   @media (prefers-reduced-motion: reduce){ .seal-watermark img{animation:none;} }
   @media (max-width: 900px){ .seal-watermark{width:400px;height:400px;} }
 
@@ -662,13 +663,13 @@
   // position — showing it any time the user has merely scrolled past a single
   // marker caused it to "turn on" while a dark/red opaque section (or the hero)
   // was still occupying that spot, since the seal's screen position never
-  // moves but the page content sliding underneath it does. Instead, on every
-  // scroll tick we ask the DOM what's actually rendered at the seal's fixed
-  // center point (elementFromPoint sees straight through the seal itself,
-  // since it has pointer-events:none) and only show the seal when that lands
-  // inside a section explicitly marked [data-seal-cream] — an allowlist
-  // rather than excluding known-opaque sections, so any new section added
-  // later defaults to hidden instead of silently leaking the seal.
+  // moves but the page content sliding underneath it does. Checked via plain
+  // getBoundingClientRect() math against every [data-seal-cream] section
+  // (an allowlist, not a blacklist of known-opaque sections, so a new section
+  // added later defaults to hidden instead of silently leaking the seal) —
+  // deliberately NOT elementFromPoint, which forces a synchronous layout on
+  // every call and caused visible scroll jank on iOS Safari when run every
+  // rAF tick during a scroll gesture.
   //
   // Also gated on having fully scrolled past the "Meaning of the Name"
   // section: the seal is the same serpent glyph explained there, so
@@ -677,14 +678,17 @@
   // up — only counts as "past" once .meaning has fully scrolled off the top.
   var sealWatermark = document.getElementById('sealWatermark');
   var sealMeaningSection = document.querySelector('.meaning');
+  var sealCreamSections = Array.prototype.slice.call(document.querySelectorAll('[data-seal-cream]'));
   if (sealWatermark) {
     var sealTicking = false;
     function updateSealVisibility(){
       var pastMeaning = !sealMeaningSection || sealMeaningSection.getBoundingClientRect().bottom <= 0;
-      var cx = window.innerWidth / 2;
       var cy = window.innerHeight / 2;
-      var behind = document.elementFromPoint(cx, cy);
-      var isVisible = pastMeaning && !!behind && !!behind.closest('[data-seal-cream]');
+      var onCream = sealCreamSections.some(function(section){
+        var rect = section.getBoundingClientRect();
+        return rect.top <= cy && rect.bottom >= cy;
+      });
+      var isVisible = pastMeaning && onCream;
       sealWatermark.classList.toggle('is-visible', isVisible);
       sealTicking = false;
     }
