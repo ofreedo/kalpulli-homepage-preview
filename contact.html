@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Kalpulli Ehecacoatl</title>
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Us — Kalpulli Ehecacoatl">
+<meta property="og:description" content="Kalpulli Ehecacoatl is based in Watsonville, California, and serves communities throughout the greater Bay Area and beyond.">
+<meta property="og:image" content="https://ofreedo.github.io/kalpulli-homepage-preview/assets/new_logo.png">
+<meta property="og:url" content="https://ofreedo.github.io/kalpulli-homepage-preview/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Us — Kalpulli Ehecacoatl">
+<meta name="twitter:description" content="Kalpulli Ehecacoatl is based in Watsonville, California, and serves communities throughout the greater Bay Area and beyond.">
+<meta name="twitter:image" content="https://ofreedo.github.io/kalpulli-homepage-preview/assets/new_logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=7">
+<style>
+  .reasons-list{max-width:640px;margin:32px auto 0;text-align:left;}
+  .reasons-list li{list-style:none;padding:10px 0 10px 28px;position:relative;color:var(--ink-soft);font-size:1.2rem;}
+  .reasons-list li::before{content:'—';position:absolute;left:0;color:var(--red);font-weight:700;}
+
+  .reps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:48px;max-width:600px;margin-left:auto;margin-right:auto;}
+  .rep-card h4{font-family:var(--serif);font-weight:800;font-size:1.15rem;margin-top:14px;}
+  .rep-card p{color:var(--ink-soft);font-size:1.1rem;margin-top:2px;}
+  /* .rep-card is reused inside the dark "Direct Contacts" section, where the
+     default var(--ink-soft) (near-black) is illegible against the dark
+     background — override to a light color there. */
+  .dark-section .rep-card h4{color:#fff;}
+  .dark-section .rep-card p{color:rgba(242,237,230,0.8);}
+
+  .faq-item{border-bottom:1px solid var(--line);padding:24px 0;text-align:left;max-width:760px;margin:0 auto;}
+  .faq-item h4{font-family:var(--serif);font-weight:800;font-size:1.15rem;margin-bottom:8px;}
+  .faq-item p{color:var(--ink-soft);font-size:1.2rem;line-height:1.7;}
+
+  .pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:520px;margin:48px auto 0;}
+  .pr-grid h4{font-family:var(--serif);font-weight:800;font-size:1rem;margin-top:12px;}
+
+  @media (max-width: 700px){
+    .pr-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="logo">
+      <span class="mark"><img src="assets/new_logo.png" alt="Kalpulli Ehecacoatl seal"></span>
+      Kalpulli Ehecacoatl<br>Danza y Cultura
+    </a>
+    <nav>
+      <ul>
+        <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+        <li><a href="join-us.html" data-i18n="nav-join">Join Us</a></li>
+        <li><a href="book-us.html" data-i18n="nav-book">Book Us</a></li>
+        <li><a href="dia-de-muertos.html" data-i18n="nav-ceremony">Día de Muertos</a></li>
+        <li><a href="gallery.html" data-i18n="nav-gallery">Gallery</a></li>
+        <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="social">
+        <a href="https://www.facebook.com/KalpulliEhecacoatl" target="_blank" rel="noopener" aria-label="Kalpulli Ehecacoatl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.505 17.523 2 12 2S2 6.505 2 12.06c0 5.02 3.657 9.184 8.438 9.94v-7.03H7.898v-2.91h2.54V9.845c0-2.526 1.492-3.921 3.777-3.921 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.775-1.63 1.57v1.888h2.773l-.443 2.91h-2.33V22c4.78-.756 8.437-4.92 8.437-9.94z"/></svg></a>
+        <a href="https://www.instagram.com/kalpulli_ehecacoatl/" target="_blank" rel="noopener" aria-label="Kalpulli Ehecacoatl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.716 0-3.056.012-4.123.06-1.064.05-1.79.218-2.428.465a4.902 4.902 0 0 0-1.771 1.153A4.902 4.902 0 0 0 2.525 5.45c-.247.637-.415 1.363-.465 2.428C2.012 8.944 2 9.284 2 12s.012 3.056.06 4.123c.05 1.064.218 1.79.465 2.428a4.902 4.902 0 0 0 1.153 1.771 4.902 4.902 0 0 0 1.77 1.153c.638.247 1.364.415 2.43.465C8.943 21.988 9.283 22 12 22s3.056-.012 4.123-.06c1.064-.05 1.79-.218 2.428-.465a4.902 4.902 0 0 0 1.771-1.153 4.902 4.902 0 0 0 1.153-1.77c.247-.638.415-1.364.465-2.43.048-1.066.06-1.406.06-4.122s-.012-3.056-.06-4.123c-.05-1.064-.218-1.79-.465-2.428a4.902 4.902 0 0 0-1.153-1.771 4.902 4.902 0 0 0-1.77-1.153c-.638-.247-1.364-.415-2.43-.465C15.056 2.012 14.716 2 12 2zm0 1.802c2.67 0 2.986.01 4.04.059.976.045 1.505.207 1.858.344.466.181.8.399 1.15.748.35.35.567.683.748 1.15.137.352.3.881.344 1.857.048 1.054.058 1.37.058 4.04s-.01 2.987-.058 4.04c-.045.977-.207 1.506-.344 1.858-.181.466-.399.8-.748 1.15-.35.35-.683.567-1.15.748-.352.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058s-2.987-.01-4.04-.058c-.977-.045-1.506-.207-1.858-.344a3.098 3.098 0 0 1-1.15-.748 3.098 3.098 0 0 1-.748-1.15c-.137-.352-.3-.882-.344-1.857-.048-1.054-.058-1.37-.058-4.041s.01-2.987.058-4.04c.045-.977.207-1.506.344-1.858.181-.466.399-.8.748-1.15.35-.35.683-.567 1.15-.748.352-.137.881-.3 1.857-.344 1.054-.048 1.37-.058 4.041-.058zm0 3.064a5.135 5.135 0 1 0 0 10.269 5.135 5.135 0 0 0 0-10.27zm0 8.468a3.333 3.333 0 1 1 0-6.666 3.333 3.333 0 0 1 0 6.666zm6.538-8.671a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+      </div>
+      <button class="lang-btn" type="button" aria-label="Cambiar a español">
+        <span data-lang-option="en" class="is-active">EN</span> / <span data-lang-option="es">ES</span>
+      </button>
+      <a class="donate-btn" href="donate.html" data-i18n="nav-donate">Donate</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-scrim" id="navScrim"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+  </div>
+  <ul>
+    <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+    <li><a href="join-us.html" data-i18n="nav-join">Join Us</a></li>
+    <li><a href="book-us.html" data-i18n="nav-book">Book Us</a></li>
+    <li><a href="dia-de-muertos.html" data-i18n="nav-ceremony">Día de Muertos</a></li>
+    <li><a href="gallery.html" data-i18n="nav-gallery">Gallery</a></li>
+    <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-social">
+    <a href="https://www.facebook.com/KalpulliEhecacoatl" target="_blank" rel="noopener" class="social-link">Facebook</a>
+    <a href="https://www.instagram.com/kalpulli_ehecacoatl/" target="_blank" rel="noopener" class="social-link">Instagram</a>
+  </div>
+  <button class="lang-btn mobile-nav-lang" type="button" aria-label="Cambiar a español">
+    <span data-lang-option="en" class="is-active">EN</span> / <span data-lang-option="es">ES</span>
+  </button>
+</nav>
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="wrap">
+    <div class="kicker reveal reveal-up" data-i18n="banner-kicker">Get in Touch</div>
+    <h1 class="reveal reveal-up" data-i18n="banner-h1">Contact Us</h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section data-seal-cream>
+  <div class="wrap" style="max-width:760px;text-align:center;">
+    <p class="section-body reveal reveal-up" style="max-width:none;" data-i18n="intro-body">Kalpulli Ehecacoatl is based in Watsonville, California, and serves communities throughout the greater Bay Area and beyond. Whether you have a question, are looking to connect, or want to learn more about our work, we welcome you to reach out. Kalpulli Ehecacoatl is rooted in community, and we value meaningful connections with those who share an interest in culture, tradition, and collective growth.</p>
+
+    <div class="ph-photo ph-wide reveal reveal-up" style="max-width:600px;margin:40px auto 0;"><span>[Photo — Community Gathering]</span></div>
+
+    <div class="kicker reveal reveal-up" style="margin-top:48px;" data-i18n="reasons-kicker">You Can Reach Out to Us For</div>
+    <ul class="reasons-list reveal-stagger">
+      <li data-i18n="reason-1">General questions about our group and activities</li>
+      <li data-i18n="reason-2">Information about upcoming events, ceremonies and practices</li>
+      <li data-i18n="reason-3">Cultural or educational inquiries</li>
+      <li data-i18n="reason-4">Media, photography, or collaboration questions</li>
+      <li data-i18n="reason-5">Community partnerships</li>
+    </ul>
+  </div>
+</section>
+
+<div class="torn-edge torn-edge-to-dark">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,48 L0,28 L40,16 L80,34 L120,18 L160,38 L200,22 L240,40 L280,20 L320,36 L360,24 L400,42 L440,26 L480,32 L520,18 L560,38 L600,22 L640,34 L680,20 L720,40 L760,24 L800,32 L840,18 L880,38 L920,22 L960,34 L1000,20 L1040,40 L1080,24 L1120,32 L1160,20 L1200,36 L1200,48 Z" fill="#2b2b2b"/>
+  </svg>
+</div>
+
+<!-- DIRECT CONTACTS -->
+<section class="dark-section">
+  <div class="wrap">
+    <div class="kicker reveal reveal-up" data-i18n="direct-kicker">Direct Contacts</div>
+    <h2 class="section-title reveal reveal-up" data-i18n="direct-title">Group Representatives</h2>
+    <svg class="underline-accent reveal reveal-up is-visible" viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 20 2, 38 7 T 74 6 T 118 5"/></svg>
+    <div class="reps-grid reveal-stagger">
+      <div class="rep-card">
+        <div class="ph-photo ph-square"><span>[Photo]</span></div>
+        <h4>Gabriela Hernandez</h4>
+        <p>(831) 234-7282</p>
+      </div>
+      <div class="rep-card">
+        <div class="ph-photo ph-square"><span>[Photo]</span></div>
+        <h4>Noemi Zarate</h4>
+        <p>(831) 737-0377</p>
+      </div>
+    </div>
+    <p class="reveal reveal-up" style="text-align:center;margin-top:48px;color:rgba(242,237,230,0.8);font-size:1.1rem;" data-i18n-html="email-line">Email: <a href="mailto:kalpulli.ehecacoatl@gmail.com" style="text-decoration:underline;">kalpulli.ehecacoatl@gmail.com</a></p>
+    <p class="reveal reveal-up" style="text-align:center;margin-top:12px;color:rgba(242,237,230,0.6);font-size:1rem;" data-i18n="response-time">We do our best to respond to all messages in a timely manner. Please allow 2–5 days for a response.</p>
+  </div>
+</section>
+
+<div class="torn-edge torn-edge-to-light">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,20 L40,32 L80,14 L120,30 L160,10 L200,26 L240,8 L280,28 L320,12 L360,24 L400,6 L440,22 L480,16 L520,30 L560,10 L600,26 L640,14 L680,28 L720,8 L760,24 L800,16 L840,30 L880,10 L920,26 L960,14 L1000,28 L1040,8 L1080,24 L1120,16 L1160,28 L1200,12 L1200,0 Z" fill="#F7F4EF"/>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section data-seal-cream>
+  <div class="wrap">
+    <div class="kicker reveal reveal-up" data-i18n="faq-kicker">FAQ</div>
+    <h2 class="section-title reveal reveal-up" data-i18n="faq-title">Frequently asked questions</h2>
+    <svg class="underline-accent reveal reveal-up is-visible" viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 20 2, 38 7 T 74 6 T 118 5"/></svg>
+    <div class="reveal-stagger" style="margin-top:40px;">
+      <div class="faq-item">
+        <h4 data-i18n="faq-1-q">How can I join Kalpulli Ehecacoatl?</h4>
+        <p data-i18n-html="faq-1-a">Please visit our <a href="join-us.html" style="text-decoration:underline;color:var(--red);">Join Us</a> page for full information on how to become part of our community.</p>
+      </div>
+      <div class="faq-item">
+        <h4 data-i18n="faq-2-q">How can I book the group for an event?</h4>
+        <p data-i18n-html="faq-2-a">Visit our <a href="book-us.html" style="text-decoration:underline;color:var(--red);">Book Us</a> page and submit your request through the booking form provided.</p>
+      </div>
+      <div class="faq-item">
+        <h4 data-i18n="faq-3-q">Do you host public events?</h4>
+        <p data-i18n="faq-3-a">Yes, we host and participate in community events and ceremonies throughout the year. Follow us on social media to stay updated.</p>
+      </div>
+      <div class="faq-item">
+        <h4 data-i18n="faq-4-q">How long does it take to receive a response?</h4>
+        <p data-i18n="faq-4-a">Please allow 2–5 days for a response. Response times may vary during busy seasons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAY CONNECTED / PR TEAM -->
+<section data-seal-cream style="padding-top:0;">
+  <div class="wrap" style="max-width:760px;text-align:center;">
+    <div class="kicker reveal reveal-up" data-i18n="stay-kicker">Stay Connected</div>
+    <h2 class="section-title reveal reveal-up" data-i18n="stay-title">Follow our story</h2>
+    <svg class="underline-accent reveal reveal-up is-visible" viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 20 2, 38 7 T 74 6 T 118 5"/></svg>
+    <p class="section-body reveal reveal-up" data-i18n="stay-body">Follow us on social media to stay updated on ceremonies, events, and community gatherings. Our Public Relations team helps share the voice, work, and spirit of Kalpulli Ehecacoatl through our online platforms, keeping our community informed and connected. We look forward to connecting with you.</p>
+    <div class="kicker reveal reveal-up" style="margin-top:48px;" data-i18n="pr-team-kicker">PR Team</div>
+    <div class="pr-grid reveal-stagger">
+      <div class="rep-card">
+        <div class="ph-photo ph-square"><span>[Photo]</span></div>
+        <h4>Hassyel</h4>
+      </div>
+      <div class="rep-card">
+        <div class="ph-photo ph-square"><span>[Photo]</span></div>
+        <h4>Diana</h4>
+      </div>
+      <div class="rep-card">
+        <div class="ph-photo ph-square"><span>[Photo]</span></div>
+        <h4>Celeste</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo-f">
+        <span class="mark"><img src="assets/new_logo.png" alt="Kalpulli Ehecacoatl seal"></span>
+        <h4>Kalpulli Ehecacoatl<br>Danza y Cultura</h4>
+      </a>
+      <p class="footer-brand-tag">501(c)3</p>
+      <p data-i18n="footer-tagline">Preserving indigenous Mexica traditions through dance, music, and culture in Watsonville &amp; Santa Cruz County, CA.</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer-touch-h">Get In Touch</h5>
+      <ul>
+        <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+        <li><a href="join-us.html" data-i18n="footer-programs">Our Programs</a></li>
+        <li><a href="dia-de-muertos.html" data-i18n="footer-events">Events Calendar</a></li>
+        <li><a href="join-us.html" data-i18n="footer-volunteer">Volunteer</a></li>
+        <li><a href="donate.html" data-i18n="footer-donate-now">Donate Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer-practice-h">Practice Info</h5>
+      <ul>
+        <li data-i18n="footer-days">Monday &amp; Thursday</li>
+        <li>6:30 – 9:00 PM</li>
+        <li>437 Rogers Ave,<br>Watsonville, CA 95076</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer-follow-h">Follow Us</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/kalpulli_ehecacoatl/" target="_blank" rel="noopener">Instagram — @kalpulli_ehecacoatl</a></li>
+        <li><a href="https://www.facebook.com/KalpulliEhecacoatl" target="_blank" rel="noopener">Facebook — Kalpulli Ehecacoatl</a></li>
+        <li><a href="mailto:kalpulli.ehecacoatl@gmail.com">kalpulli.ehecacoatl@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span data-i18n="footer-rights">© 2026 Kalpulli Ehecacoatl. All rights reserved.</span>
+    <span><a href="#">Privacy Notice</a><a href="#">User Agreement</a></span>
+  </div>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  es: {
+    'nav-about': 'Nosotros',
+    'nav-join': 'Únete',
+    'nav-book': 'Contrátanos',
+    'nav-ceremony': 'Día de Muertos',
+    'nav-gallery': 'Galería',
+    'nav-contact': 'Contacto',
+    'nav-donate': 'Donar',
+    'banner-kicker': 'Ponte en Contacto',
+    'banner-h1': 'Contáctanos',
+    'intro-body': 'Kalpulli Ehecacoatl tiene su sede en Watsonville, California, y sirve a comunidades en toda el área de la Bahía y más allá. Ya sea que tengas una pregunta, busques conectarte, o quieras saber más sobre nuestro trabajo, te invitamos a contactarnos. Kalpulli Ehecacoatl está arraigado en la comunidad, y valoramos las conexiones significativas con quienes comparten un interés en la cultura, la tradición y el crecimiento colectivo.',
+    'reasons-kicker': 'Puedes Contactarnos Para',
+    'reason-1': 'Preguntas generales sobre nuestro grupo y actividades',
+    'reason-2': 'Información sobre próximos eventos, ceremonias y prácticas',
+    'reason-3': 'Consultas culturales o educativas',
+    'reason-4': 'Preguntas de medios, fotografía o colaboración',
+    'reason-5': 'Alianzas comunitarias',
+    'direct-kicker': 'Contactos Directos',
+    'direct-title': 'Representantes del Grupo',
+    'email-line': 'Correo electrónico: <a href="mailto:kalpulli.ehecacoatl@gmail.com" style="text-decoration:underline;">kalpulli.ehecacoatl@gmail.com</a>',
+    'response-time': 'Hacemos todo lo posible por responder a todos los mensajes de manera oportuna. Por favor permite de 2 a 5 días para una respuesta.',
+    'faq-kicker': 'Preguntas Frecuentes',
+    'faq-title': 'Preguntas frecuentes',
+    'faq-1-q': '¿Cómo puedo unirme a Kalpulli Ehecacoatl?',
+    'faq-1-a': 'Visita nuestra página <a href="join-us.html" style="text-decoration:underline;color:var(--red);">Únete</a> para obtener información completa sobre cómo formar parte de nuestra comunidad.',
+    'faq-2-q': '¿Cómo puedo contratar al grupo para un evento?',
+    'faq-2-a': 'Visita nuestra página <a href="book-us.html" style="text-decoration:underline;color:var(--red);">Contrátanos</a> y envía tu solicitud a través del formulario de reserva proporcionado.',
+    'faq-3-q': '¿Organizan eventos públicos?',
+    'faq-3-a': 'Sí, organizamos y participamos en eventos comunitarios y ceremonias durante todo el año. Síguenos en redes sociales para mantenerte informado.',
+    'faq-4-q': '¿Cuánto tiempo toma recibir una respuesta?',
+    'faq-4-a': 'Por favor permite de 2 a 5 días para una respuesta. Los tiempos de respuesta pueden variar durante temporadas de mucha actividad.',
+    'stay-kicker': 'Mantente Conectado',
+    'stay-title': 'Sigue nuestra historia',
+    'stay-body': 'Síguenos en redes sociales para mantenerte al tanto de ceremonias, eventos y reuniones comunitarias. Nuestro equipo de Relaciones Públicas ayuda a compartir la voz, el trabajo y el espíritu de Kalpulli Ehecacoatl a través de nuestras plataformas en línea, manteniendo a nuestra comunidad informada y conectada. Esperamos conectar contigo.',
+    'pr-team-kicker': 'Equipo de RP',
+    'footer-tagline': 'Preservando las tradiciones indígenas mexicas a través de la danza, la música y la cultura en Watsonville y el condado de Santa Cruz, CA.',
+    'footer-touch-h': 'Contáctanos',
+    'footer-programs': 'Nuestros Programas',
+    'footer-events': 'Calendario de Eventos',
+    'footer-volunteer': 'Voluntariado',
+    'footer-donate-now': 'Donar Ahora',
+    'footer-practice-h': 'Información de Práctica',
+    'footer-days': 'Lunes y Jueves',
+    'footer-follow-h': 'Síguenos',
+    'footer-rights': '© 2026 Kalpulli Ehecacoatl. Todos los derechos reservados.'
+  }
+};
+</script>
+<script src="js/site.js?v=2"></script>
+</body>
+</html>

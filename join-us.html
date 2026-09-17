@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Us — Kalpulli Ehecacoatl</title>
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Join Us — Kalpulli Ehecacoatl">
+<meta property="og:description" content="Free Aztec dance classes every Monday and Thursday in Watsonville, CA. No prior experience necessary — everyone is welcome.">
+<meta property="og:image" content="https://ofreedo.github.io/kalpulli-homepage-preview/assets/new_logo.png">
+<meta property="og:url" content="https://ofreedo.github.io/kalpulli-homepage-preview/join-us.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Join Us — Kalpulli Ehecacoatl">
+<meta name="twitter:description" content="Free Aztec dance classes every Monday and Thursday in Watsonville, CA. No prior experience necessary — everyone is welcome.">
+<meta name="twitter:image" content="https://ofreedo.github.io/kalpulli-homepage-preview/assets/new_logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=7">
+<style>
+  /* Class schedule / location info band */
+  .info-band{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:760px;margin:48px auto 0;text-align:center;}
+  .info-band h4{font-family:var(--serif);font-weight:800;font-size:1.15rem;margin-bottom:10px;}
+  .info-band p{color:var(--ink-soft);font-size:1.2rem;line-height:1.7;}
+
+  /* Member benefit cards — reuses .ph-photo for the labeled banner images */
+  .benefit-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:56px;}
+  .benefit-card h3{font-family:var(--serif);font-weight:800;font-size:1.3rem;margin:18px 0 10px;}
+  .benefit-card p{color:var(--ink-soft);font-size:1.2rem;line-height:1.7;}
+
+  @media (max-width: 900px){
+    .info-band{grid-template-columns:1fr;gap:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="logo">
+      <span class="mark"><img src="assets/new_logo.png" alt="Kalpulli Ehecacoatl seal"></span>
+      Kalpulli Ehecacoatl<br>Danza y Cultura
+    </a>
+    <nav>
+      <ul>
+        <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+        <li><a href="join-us.html" data-i18n="nav-join">Join Us</a></li>
+        <li><a href="book-us.html" data-i18n="nav-book">Book Us</a></li>
+        <li><a href="dia-de-muertos.html" data-i18n="nav-ceremony">Día de Muertos</a></li>
+        <li><a href="gallery.html" data-i18n="nav-gallery">Gallery</a></li>
+        <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="social">
+        <a href="https://www.facebook.com/KalpulliEhecacoatl" target="_blank" rel="noopener" aria-label="Kalpulli Ehecacoatl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.505 17.523 2 12 2S2 6.505 2 12.06c0 5.02 3.657 9.184 8.438 9.94v-7.03H7.898v-2.91h2.54V9.845c0-2.526 1.492-3.921 3.777-3.921 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.775-1.63 1.57v1.888h2.773l-.443 2.91h-2.33V22c4.78-.756 8.437-4.92 8.437-9.94z"/></svg></a>
+        <a href="https://www.instagram.com/kalpulli_ehecacoatl/" target="_blank" rel="noopener" aria-label="Kalpulli Ehecacoatl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.716 0-3.056.012-4.123.06-1.064.05-1.79.218-2.428.465a4.902 4.902 0 0 0-1.771 1.153A4.902 4.902 0 0 0 2.525 5.45c-.247.637-.415 1.363-.465 2.428C2.012 8.944 2 9.284 2 12s.012 3.056.06 4.123c.05 1.064.218 1.79.465 2.428a4.902 4.902 0 0 0 1.153 1.771 4.902 4.902 0 0 0 1.77 1.153c.638.247 1.364.415 2.43.465C8.943 21.988 9.283 22 12 22s3.056-.012 4.123-.06c1.064-.05 1.79-.218 2.428-.465a4.902 4.902 0 0 0 1.771-1.153 4.902 4.902 0 0 0 1.153-1.77c.247-.638.415-1.364.465-2.43.048-1.066.06-1.406.06-4.122s-.012-3.056-.06-4.123c-.05-1.064-.218-1.79-.465-2.428a4.902 4.902 0 0 0-1.153-1.771 4.902 4.902 0 0 0-1.77-1.153c-.638-.247-1.364-.415-2.43-.465C15.056 2.012 14.716 2 12 2zm0 1.802c2.67 0 2.986.01 4.04.059.976.045 1.505.207 1.858.344.466.181.8.399 1.15.748.35.35.567.683.748 1.15.137.352.3.881.344 1.857.048 1.054.058 1.37.058 4.04s-.01 2.987-.058 4.04c-.045.977-.207 1.506-.344 1.858-.181.466-.399.8-.748 1.15-.35.35-.683.567-1.15.748-.352.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058s-2.987-.01-4.04-.058c-.977-.045-1.506-.207-1.858-.344a3.098 3.098 0 0 1-1.15-.748 3.098 3.098 0 0 1-.748-1.15c-.137-.352-.3-.882-.344-1.857-.048-1.054-.058-1.37-.058-4.041s.01-2.987.058-4.04c.045-.977.207-1.506.344-1.858.181-.466.399-.8.748-1.15.35-.35.683-.567 1.15-.748.352-.137.881-.3 1.857-.344 1.054-.048 1.37-.058 4.041-.058zm0 3.064a5.135 5.135 0 1 0 0 10.269 5.135 5.135 0 0 0 0-10.27zm0 8.468a3.333 3.333 0 1 1 0-6.666 3.333 3.333 0 0 1 0 6.666zm6.538-8.671a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+      </div>
+      <button class="lang-btn" type="button" aria-label="Cambiar a español">
+        <span data-lang-option="en" class="is-active">EN</span> / <span data-lang-option="es">ES</span>
+      </button>
+      <a class="donate-btn" href="donate.html" data-i18n="nav-donate">Donate</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-scrim" id="navScrim"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+  </div>
+  <ul>
+    <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+    <li><a href="join-us.html" data-i18n="nav-join">Join Us</a></li>
+    <li><a href="book-us.html" data-i18n="nav-book">Book Us</a></li>
+    <li><a href="dia-de-muertos.html" data-i18n="nav-ceremony">Día de Muertos</a></li>
+    <li><a href="gallery.html" data-i18n="nav-gallery">Gallery</a></li>
+    <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-social">
+    <a href="https://www.facebook.com/KalpulliEhecacoatl" target="_blank" rel="noopener" class="social-link">Facebook</a>
+    <a href="https://www.instagram.com/kalpulli_ehecacoatl/" target="_blank" rel="noopener" class="social-link">Instagram</a>
+  </div>
+  <button class="lang-btn mobile-nav-lang" type="button" aria-label="Cambiar a español">
+    <span data-lang-option="en" class="is-active">EN</span> / <span data-lang-option="es">ES</span>
+  </button>
+</nav>
+
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="wrap">
+    <div class="kicker reveal reveal-up" data-i18n="banner-kicker">Aztec Dance Classes</div>
+    <h1 class="reveal reveal-up" data-i18n="banner-h1">Join Us</h1>
+  </div>
+</section>
+
+<!-- INTRO + SCHEDULE -->
+<section data-seal-cream>
+  <div class="wrap" style="max-width:820px;">
+    <p class="section-body reveal reveal-up" data-i18n="intro-body">Everyone is welcome to join our Aztec dance classes. Our classes are free of charge and no prior experience is necessary.</p>
+    <div class="info-band reveal-stagger">
+      <div>
+        <h4 data-i18n="schedule-h">Class Schedule</h4>
+        <p data-i18n-html="schedule-p">Mondays &amp; Thursdays<br>6:30 PM – 9:00 PM</p>
+      </div>
+      <div>
+        <h4 data-i18n="location-h">Location</h4>
+        <p data-i18n-html="location-p">All Saints Episcopal Church<br>437 Rogers Ave<br>Watsonville, CA 95076</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="torn-edge torn-edge-to-dark">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,48 L0,28 L40,16 L80,34 L120,18 L160,38 L200,22 L240,40 L280,20 L320,36 L360,24 L400,42 L440,26 L480,32 L520,18 L560,38 L600,22 L640,34 L680,20 L720,40 L760,24 L800,32 L840,18 L880,38 L920,22 L960,34 L1000,20 L1040,40 L1080,24 L1120,32 L1160,20 L1200,36 L1200,48 Z" fill="#2b2b2b"/>
+  </svg>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<section class="dark-section">
+  <div class="wrap">
+    <div class="kicker reveal reveal-up" data-i18n="expect-kicker">What to Expect</div>
+    <h2 class="section-title reveal reveal-up" data-i18n="expect-title">A welcoming space to learn and grow</h2>
+    <svg class="underline-accent reveal reveal-up is-visible" viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 20 2, 38 7 T 74 6 T 118 5"/></svg>
+    <p class="section-body reveal reveal-up" data-i18n="expect-body">Each class begins with a beginner-friendly session where new participants learn the fundamentals of Aztec dance. The second portion is a more advanced practice focused on ceremonial formations and protocols. Whether you are taking your first steps or returning after time away, you'll find a welcoming, supportive, and inclusive community where you can learn, grow, and connect with Indigenous traditions.</p>
+  </div>
+</section>
+
+<div class="torn-edge torn-edge-to-light">
+  <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,20 L40,32 L80,14 L120,30 L160,10 L200,26 L240,8 L280,28 L320,12 L360,24 L400,6 L440,22 L480,16 L520,30 L560,10 L600,26 L640,14 L680,28 L720,8 L760,24 L800,16 L840,30 L880,10 L920,26 L960,14 L1000,28 L1040,8 L1080,24 L1120,16 L1160,28 L1200,12 L1200,0 Z" fill="#F7F4EF"/>
+  </svg>
+</div>
+
+<!-- MEMBER BENEFITS -->
+<section data-seal-cream>
+  <div class="wrap">
+    <div class="kicker reveal reveal-up" data-i18n="membership-kicker">Membership</div>
+    <h2 class="section-title reveal reveal-up" data-i18n="membership-title2">Official members have access to</h2>
+    <svg class="underline-accent reveal reveal-up is-visible" viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 20 2, 38 7 T 74 6 T 118 5"/></svg>
+    <div class="benefit-cards reveal-stagger">
+      <div class="benefit-card">
+        <div class="ph-photo ph-wide"><span>[Photo — Temazcal]</span></div>
+        <h3 data-i18n="benefit-1-h">Temazcal</h3>
+        <p data-i18n="benefit-1-p">Our temazcal can be a healing and empowering experience for our dancers. Temazcal dates and times are announced at our dance classes.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ph-photo ph-wide"><span>[Photo — Workshops]</span></div>
+        <h3 data-i18n="benefit-2-h">Regalia Workshops</h3>
+        <p data-i18n="benefit-2-p">After becoming an official member, participants can begin working on their regalia. Workshop dates and times are announced at our dance classes.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ph-photo ph-wide"><span>[Photo — Ceremonies]</span></div>
+        <h3 data-i18n="benefit-3-h">Ceremonies</h3>
+        <p data-i18n="benefit-3-p">Members are encouraged to explore and learn from the rich Aztec dance community all over California. Together we visit the ceremonies held by different communities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap reveal reveal-up">
+    <h2 data-i18n="cta-title">Ready to Join?</h2>
+    <p data-i18n="cta-body">Come as you are, Mondays and Thursdays, 6:30–9:00 PM. No experience needed — just bring yourself.</p>
+    <a class="btn btn-outline" href="contact.html" data-i18n="nav-contact-us">Contact Us</a>
+  </div>
+</section>
+
+<div class="section-gap"></div>
+
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo-f">
+        <span class="mark"><img src="assets/new_logo.png" alt="Kalpulli Ehecacoatl seal"></span>
+        <h4>Kalpulli Ehecacoatl<br>Danza y Cultura</h4>
+      </a>
+      <p class="footer-brand-tag">501(c)3</p>
+      <p data-i18n="footer-tagline">Preserving indigenous Mexica traditions through dance, music, and culture in Watsonville &amp; Santa Cruz County, CA.</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer-touch-h">Get In Touch</h5>
+      <ul>
+        <li><a href="about.html" data-i18n="nav-about">About Us</a></li>
+        <li><a href="join-us.html" data-i18n="footer-programs">Our Programs</a></li>
+        <li><a href="dia-de-muertos.html" data-i18n="footer-events">Events Calendar</a></li>
+        <li><a href="join-us.html" data-i18n="footer-volunteer">Volunteer</a></li>
+        <li><a href="donate.html" data-i18n="footer-donate-now">Donate Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer-practice-h">Practice Info</h5>
+      <ul>
+        <li data-i18n="footer-days">Monday &amp; Thursday</li>
+        <li>6:30 – 9:00 PM</li>
+        <li>437 Rogers Ave,<br>Watsonville, CA 95076</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer-follow-h">Follow Us</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/kalpulli_ehecacoatl/" target="_blank" rel="noopener">Instagram — @kalpulli_ehecacoatl</a></li>
+        <li><a href="https://www.facebook.com/KalpulliEhecacoatl" target="_blank" rel="noopener">Facebook — Kalpulli Ehecacoatl</a></li>
+        <li><a href="mailto:kalpulli.ehecacoatl@gmail.com">kalpulli.ehecacoatl@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span data-i18n="footer-rights">© 2026 Kalpulli Ehecacoatl. All rights reserved.</span>
+    <span><a href="#">Privacy Notice</a><a href="#">User Agreement</a></span>
+  </div>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  es: {
+    'nav-about': 'Nosotros',
+    'nav-join': 'Únete',
+    'nav-book': 'Contrátanos',
+    'nav-ceremony': 'Día de Muertos',
+    'nav-gallery': 'Galería',
+    'nav-contact': 'Contacto',
+    'nav-donate': 'Donar',
+    'nav-contact-us': 'Contáctanos',
+    'banner-kicker': 'Clases de Danza Azteca',
+    'banner-h1': 'Únete',
+    'intro-body': 'Todos son bienvenidos a unirse a nuestras clases de danza azteca. Nuestras clases son gratuitas y no se necesita experiencia previa.',
+    'schedule-h': 'Horario de Clases',
+    'schedule-p': 'Lunes y Jueves<br>6:30 PM – 9:00 PM',
+    'location-h': 'Ubicación',
+    'location-p': 'All Saints Episcopal Church<br>437 Rogers Ave<br>Watsonville, CA 95076',
+    'expect-kicker': 'Qué Esperar',
+    'expect-title': 'Un espacio acogedor para aprender y crecer',
+    'expect-body': 'Cada clase comienza con una sesión amigable para principiantes donde los nuevos participantes aprenden los fundamentos de la danza azteca. La segunda parte es una práctica más avanzada enfocada en formaciones y protocolos ceremoniales. Ya sea que estés dando tus primeros pasos o regresando después de un tiempo, encontrarás una comunidad acogedora, solidaria e inclusiva donde puedes aprender, crecer y conectar con las tradiciones indígenas.',
+    'membership-kicker': 'Membresía',
+    'membership-title2': 'Los miembros oficiales tienen acceso a',
+    'benefit-1-h': 'Temazcal',
+    'benefit-1-p': 'Nuestro temazcal puede ser una experiencia sanadora y empoderadora para nuestros danzantes. Las fechas y horarios del temazcal se anuncian en nuestras clases de danza.',
+    'benefit-2-h': 'Talleres de Regalía',
+    'benefit-2-p': 'Después de convertirse en miembro oficial, los participantes pueden comenzar a trabajar en su regalía. Las fechas y horarios de los talleres se anuncian en nuestras clases de danza.',
+    'benefit-3-h': 'Ceremonias',
+    'benefit-3-p': 'Se anima a los miembros a explorar y aprender de la rica comunidad de danza azteca en toda California. Juntos visitamos las ceremonias realizadas por diferentes comunidades.',
+    'cta-title': '¿Listo para Unirte?',
+    'cta-body': 'Ven como eres, lunes y jueves, de 6:30 a 9:00 PM. No se necesita experiencia — solo trae contigo mismo.',
+    'footer-tagline': 'Preservando las tradiciones indígenas mexicas a través de la danza, la música y la cultura en Watsonville y el condado de Santa Cruz, CA.',
+    'footer-touch-h': 'Contáctanos',
+    'footer-programs': 'Nuestros Programas',
+    'footer-events': 'Calendario de Eventos',
+    'footer-volunteer': 'Voluntariado',
+    'footer-donate-now': 'Donar Ahora',
+    'footer-practice-h': 'Información de Práctica',
+    'footer-days': 'Lunes y Jueves',
+    'footer-follow-h': 'Síguenos',
+    'footer-rights': '© 2026 Kalpulli Ehecacoatl. Todos los derechos reservados.'
+  }
+};
+</script>
+<script src="js/site.js?v=2"></script>
+</body>
+</html>
